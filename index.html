@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Encodage -->
+    <meta charset="UTF-8">
+    <!-- Mise en page et mise à l'échelle de la page web -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Description de la page web -->
+    <meta name="description" content="" />
+    <!-- Description lors du partage -->
+    <meta property="og:description" content="">
+    <!-- Type de contenu lors du partage -->
+    <meta property="og:type" content="">
+    <!-- Référent principale de l'url lors du partage -->
+    <meta property="og:url" content="">
+    <!-- Titre lors du partage -->
+    <meta property="og:title" content="">
+    <!-- Titre de l'onglet -->
+    <title></title>
+
+    <!-- Un "CSS Reset" est un ensemble de styles CSS qui réinitialise ou normalise les styles par défaut des navigateurs. Chaque navigateur a ses propres styles par défaut pour divers éléments HTML, et ces styles peuvent varier d'un navigateur à l'autre. Cela peut entraîner des incohérences dans l'apparence d'un site web lorsqu'il est visualisé sur différents navigateurs. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <!-- Icon dans l'onglet -->
+    <link rel="shortcut icon" href="">
+
+    <!-- Styles de Prism (ceci est le thème par défaut, mais il y en a beaucoup d'autres) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <h1>Code pour avoir un chargement à l'ouverture de la page.</h1>
+    <pre>HTML<code class="language-html">
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="fr"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Page avec Loader&lt;/title&gt;
+            &lt;link rel="stylesheet" href="styles.css"&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;div class="loader"&gt;&lt;/div&gt;
+            &lt;!-- Le reste de votre contenu ici --&gt;
+            &lt;script src="script.js"&gt;&lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </code></pre>
+    <pre>CSS3<code class="language-css">
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;  /* pour s'assurer que le loader est au-dessus du contenu */
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }        
+    </code></pre>
+    <pre>JavaScript<code class="language-javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            // Simule un délai de chargement de 3 secondes
+            setTimeout(function() {
+                document.querySelector(".loader").style.display = "none";
+            }, 3000);
+        });    
+    </code></pre>
+
+    <!-- Script de Prism -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <!-- affichage HTML -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-html.min.js"></script>
+    <!-- affichage CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-css.min.js"></script>
+    <!-- affichage JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+</body>
+
+</html>
